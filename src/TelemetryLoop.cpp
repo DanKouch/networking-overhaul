@@ -166,7 +166,7 @@ void* TelemetryLoop(void *arg) {
 
             // Tail: Cyclic Redundancy Check (32 bit)
             result.process_bytes(buffer.data(), buffer.size());
-            unsigned long checksum = result.checksum();
+            unsigned int checksum = result.checksum();
             addToBuffer(&buffer, &checksum);
             result.reset();
 
