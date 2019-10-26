@@ -173,10 +173,10 @@ void* TelemetryLoop(void *arg) {
             // Send data and reset buffer
             sock.sendTo(buffer.data(), buffer.size(), sarg->ipaddr, sarg->port);
             buffer.clear();
+            packetCount ++;
 
             // Pause for 30 milliseconds before sending the next packet
             usleep(30000);
-            break;
         }
     } catch (SocketException &e) {
         cerr << e.what() << endl;
