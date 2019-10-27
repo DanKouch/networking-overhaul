@@ -66,12 +66,12 @@ int initMetaData() {
     if ((data->rms = (rms_t *) malloc(sizeof(rms_t)))      		       == NULL) { return 1; }
     if ((data->flags = (flags_t *) malloc(sizeof(flags_t)))          == NULL) { return 1; }
     if ((data->timers = (timers_t *) malloc(sizeof(timers_t)))       == NULL) { return 1; }
-    data->state = 0;
+    data->state = 59;
     return 0;
 }
 
 int initPressureData() {
-    data->pressure->primTank = 0;
+    data->pressure->primTank = -50.325;
     data->pressure->primLine = 0;
     data->pressure->primAct  = 0;
     data->pressure->secTank  = 0;
@@ -142,11 +142,11 @@ int initFlagData() {
     // Init flags values to 0
     data->flags->readyPump = 5;
     data->flags->pumpDown = 0;
-    data->flags->readyCommand = 0;
+    data->flags->readyCommand = 50000000;
     data->flags->propulse = 0;
     data->flags->emergencyBrake = 0;
     data->flags->isConnected = false;
-    data->flags->shouldBrake = false;
+    data->flags->shouldBrake = true;
     data->flags->shutdown = false;
     return 0;
 }
@@ -156,6 +156,7 @@ int initTimerData() {
     data->timers->startTime = 0;
     data->timers->lastRetro = 0;
     for (i = 0; i < NUM_RETROS; i++) data->timers->lastRetros[i] = 0;
+    data -> timers -> lastRetros[1] = 9;
     data->timers->crawlTimer = 0;
     return 0;
 }
