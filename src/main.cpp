@@ -9,9 +9,9 @@
 int main() {
 
     initData();
-    std::cout << "Press any button to stop sending packets..." << std::endl;
+    std::cout << "Type anything to stop sending packets..." << std::endl;
 
-    SetupTelemetry((char *)"0.0.0.0", 3000);
+    SetupTelemetry(localhost, 3000);
 
     // Keeps the main thread alive until the user presses a button
     std::cin.ignore();

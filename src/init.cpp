@@ -109,6 +109,7 @@ int initBmsData() {
     data->bms->cellAvgVoltage = 0;
     data->bms->maxCells = 0;
     data->bms->numCells = 0;
+    data->bms->imdStatus = 5;
     return 0;
 }
 
