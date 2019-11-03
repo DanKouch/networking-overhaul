@@ -8,5 +8,5 @@ add_executable(networking_overhaul src/init.cpp src/main.cpp ./libs/PracticalSoc
 
 # External Libraries
 include_directories(./libs/PracticalSocket)
-include_directories(./libs/Boost)
+include_directories(./libs/CRCpp)
 target_link_libraries(networking_overhaul pthread)
