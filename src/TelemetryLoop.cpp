@@ -8,14 +8,14 @@
 #include <memory.h>
 #include <vector>
 #include <bitset>
-#include "PracticalSocket.h"
+#include <PracticalSocket.h>
 #include "data.h"
+#include <CRC.h>
 #include <chrono>
-#include "CRC.h"
 
-extern  "C" {
-    #include <hv_iox.h>
-    #include <lv_iox.h>
+extern "C" {
+#include <hv_iox.h>
+#include <lv_iox.h>
 }
 
 
@@ -197,6 +197,11 @@ void* TelemetryLoop(void *arg) {
             buffer.clear();
 
             packetNumber ++;
+
+            if(packetNumber % 100 == 0){
+                    cout << packetNumber << " packets have been sent.\n";
+                    cout.flush();
+            }
 
             // Pause for 30 milliseconds before sending the next packet
             usleep(30000);
